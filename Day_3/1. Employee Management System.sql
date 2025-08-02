@@ -2,6 +2,8 @@ CREATE DATABASE employee_db;
 
 USE employee_db;
 
+SELECT * FROM employees limit 5 offset 2;
+
 -- Create departments table
 CREATE TABLE departments (
     dept_id INT PRIMARY KEY,
@@ -68,7 +70,7 @@ INNER JOIN departments d ON e.dept_id = d.dept_id;
 SELECT d.dept_name, e.name AS employee_name
 FROM departments d
 LEFT JOIN employees e ON d.dept_id = e.dept_id
-WHERE e.emp_id IS NULL;
+WHERE e.emp_id IS NULL or e.emp_id = '';
 
 -- 6. SELF JOIN to show each employee with their manager name
 SELECT 
